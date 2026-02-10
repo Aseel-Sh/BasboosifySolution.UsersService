@@ -27,4 +27,9 @@ RUN dotnet publish "./Basboosify.API.csproj" -c $BUILD_CONFIGURATION -o /app/pub
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+ENV POSTGRES_HOST=localhost
+ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DATABASE=basboosifyUsers
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PORT=5432
 ENTRYPOINT ["dotnet", "Basboosify.API.dll"]

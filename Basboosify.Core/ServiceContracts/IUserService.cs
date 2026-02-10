@@ -25,4 +25,12 @@ public interface IUserService
     /// <param name="registerRequest"></param>
     /// <returns></returns>
     Task<AuthenticationResponse?> Register(RegisterRequest registerRequest);
+
+
+    /// <summary>
+    /// returns userdto object based on the given id
+    /// </summary>
+    /// <param name="UserID">user id to search for</param>
+    /// <returns>userdto object based on the matching userid</returns>
+    Task<UserDTO> GetUserByUserID(Guid UserID);
 }
